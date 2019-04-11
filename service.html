@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Our Service</title>
+
+<link href="finalpro.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.labelify.js"></script>
+<script type="text/javascript">
+(function (d, w) {
+  "use strict";
+  d.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const nav = d.querySelector(".nav");
+      const isSticky =
+        w.getComputedStyle(nav, null)
+          .position == "sticky";
+      const headerHeight = d.querySelector(".header").offsetHeight;
+      let isDone = false;
+      w.addEventListener(
+        "scroll",
+        function (e) {
+          if (w.pageYOffset > headerHeight && !isDone) {
+            if (!isSticky) nav.classList.add("is-fixed");
+            nav.classList.add("is-scrolled");
+            isDone = true;
+          } else if (w.pageYOffset < headerHeight && isDone) {
+            if (!isSticky) nav.classList.remove("is-fixed");
+            nav.classList.remove("is-scrolled");
+            isDone = false;
+          }
+        },
+        false
+      );
+    },
+    false
+  );
+})(document, window);
+</script>
+</head>
+
+<body>
+
+<article>
+<header class="header">
+  <div class="floatleft"><img src="logo.png" width="130" height="200"></div>
+  <h1 class="title">Your Way Laundry Service</h1>
+  <h3 class="slogan"><i>Making your life easier, one load at a time!</i></h3>
+  <p style="text-align: center;"><i>(315) 555-0123 | yourwaylaundry@gmail.com</i></p>
+</header>
+</article>
+
+<nav class="nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="service.html">Our Service</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+	<h1>This is how <i>Your Way Laundry Service</i> works</h1>
+	<p><b>The process is completed with 4 easy steps:</b></p>
+	<p></p>
+		<p>1. Set up your service</p>
+		<ul style="padding-left:5em;">
+			<li>Select a 12-week or “as needed” contract</li>
+			<li>Give us your laundry special requests</li>
+			<li>Select a pick-up and drop-off location</li>
+		</ul>
+		<p>2. We pick up your laundry</p>
+		<ul style="padding-left:5em;">
+			<li>Use our custom laundry bag</li>
+			<li>Make sure your name is on the included tag</li>
+			<li>Leave your laundry at your desired location on your scheduled pick-up day</li>
+			<li>We will call or text you to let you know your laundry was picked up</li>
+		</ul>
+		<p>3. Laundry done your way</p>
+		<ul style="padding-left:5em;">	
+			<li>We use high quality detergent & dryer sheets or products you provide. Our standard options:</li>
+				<dd>o Our regular products</dd>
+				<dd>o Hypoallergenic products</dd>
+				<dd>o Eco-friendly products</dd>
+				<dd>o Customer-provided products</dd>
+			<li>We follow your special requests</li>
+			<li>We dry your clothes on medium heat</li>
+		</ul>
+		<p>4. 48-hour delivery</p>
+		<ul style="padding-left:5em;">
+			<li>Your cleaned, neatly folded and packaged clothes are back to you within 48 hours</li>
+			<li>Same day, ASAP service is available for an additional charge</li>
+			<li>Ironing available for an additional per-item charge</li>
+			<li>We will call or text you to let you know your laundry was dropped off</li>
+		<ul>
+</div>
+
+</body>
+</html>

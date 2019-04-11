@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Your Way Laundry Service</title>
+
+<link href="finalpro.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
+<style>
+#images {
+	margin-left:auto;
+	margin-right:auto;
+	padding:20px;
+}
+#doc {
+	width: 50%;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 5px;
+	border: solid 2px #222;
+}
+#docTitle {
+	text-align:center;
+}
+#subTitle {
+	text-align:center;
+}
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.labelify.js"></script>
+<script type="text/javascript">
+(function (d, w) {
+  "use strict";
+  d.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const nav = d.querySelector(".nav");
+      const isSticky =
+        w.getComputedStyle(nav, null)
+          .position == "sticky";
+      const headerHeight = d.querySelector(".header").offsetHeight;
+      let isDone = false;
+      w.addEventListener(
+        "scroll",
+        function (e) {
+          if (w.pageYOffset > headerHeight && !isDone) {
+            if (!isSticky) nav.classList.add("is-fixed");
+            nav.classList.add("is-scrolled");
+            isDone = true;
+          } else if (w.pageYOffset < headerHeight && isDone) {
+            if (!isSticky) nav.classList.remove("is-fixed");
+            nav.classList.remove("is-scrolled");
+            isDone = false;
+          }
+        },
+        false
+      );
+    },
+    false
+  );
+})(document, window);
+</script>
+<script>
+$(document).ready(function() {
+	$("input:text").labelify({labelledClass: "graytext"});
+});
+</script>
+<script>
+$(document).ready(function() {
+	$("#xl").click(function(){
+		$("#doc").load("xl.html");
+	});
+	$("#med").click(function(){
+       	$("#doc").load("medium.html");
+	});
+});
+</script>
+</head>
+
+<body>
+
+<article>
+<header class="header">
+  <div class="floatleft"><img src="logo.png" width="130" height="200"></div>
+  <h1 class="title">Your Way Laundry Service</h1>
+  <h3 class="slogan"><i>Making your life easier, one load at a time!</i></h3>
+  <p style="text-align: center;"><i>(315) 555-0123 | yourwaylaundry@gmail.com</i></p>
+</header>
+</article>
+
+<nav class="nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="service.html">Our Service</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+	<div id="images" align="center">
+		<img src="XL.png" id="xl" style="cursor:pointer"/>
+		<img src="Med.png" id="med" style="cursor:pointer"/>
+	</div>
+	<div id="doc">
+		<h1 id="docTitle"> We provide 2 sizes of bags. </h1>
+		<p id="subTitle">Please click the size above to see more details.</p>
+	</div>
+
+	<p>We arrange a free pick-up and delivery service for busy people who do not have time to wash and dry. Our customized
+	process guarantees your laundry is done <em><u>your way</u></em>. Our service area is Onondaga County.</p>
+	
+	<p> If you would like to setup a pick-up time, please fill out the form below.</p>
+	<form action="pickup.php" method="post">
+	<fieldset>
+    	<legend>Information: </legend>
+		<br />
+        <label for="name">Please enter your full name:</label> <input name="name" type="text" id="name" title="Name" placeholder="Name" />
+		<br />
+		<br />
+        <label for="email">Please enter your email:</label> <input name="email" type="text" id="email" title="Email" placeholder="Email"/>
+		<br />
+		<br />
+		<label for="phone">Please enter your phone number:</label> <input name="phone" type="tel" id="phone" title="Phone" placeholder="Phone Number"/>
+		<br />
+		<br />
+			<fieldset>
+            	<legend>Please schedule for our pick-up service:</legend>
+				<br />
+				<label for="date">Please pick a date:</label> <input type="date" id="date" title="Date" name="date">
+				<br />
+				<br />
+				<label for="time">Please pick a time:</label> <input type="time" id="time" title="Time" name="time">
+			</fieldset>
+	</fieldset>
+		<br />
+		<br />
+			<input name="submit" type="submit" id="submit" value="Submit"/>
+			<input name="reset" type="reset" id="reset" value="Reset"/>
+	</form>
+</div>
+    <div class="footer">
+	<p>
+		<b>Disclaimer:</b> We are not responsible for items left in pockets. Damaged or missing items will only be reimbursed up to $30 per item.
+	</p>
+	</div>
+</body>
+</html>

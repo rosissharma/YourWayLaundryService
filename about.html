@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>About Us</title>
+
+<link href="finalpro.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
+<style>
+.content iframe {
+  margin: 2em auto;
+  width: 100%;
+  position: relative;
+}
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.labelify.js"></script>
+<script type="text/javascript">
+(function (d, w) {
+  "use strict";
+  d.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const nav = d.querySelector(".nav");
+      const isSticky =
+        w.getComputedStyle(nav, null)
+          .position == "sticky";
+      const headerHeight = d.querySelector(".header").offsetHeight;
+      let isDone = false;
+      w.addEventListener(
+        "scroll",
+        function (e) {
+          if (w.pageYOffset > headerHeight && !isDone) {
+            if (!isSticky) nav.classList.add("is-fixed");
+            nav.classList.add("is-scrolled");
+            isDone = true;
+          } else if (w.pageYOffset < headerHeight && isDone) {
+            if (!isSticky) nav.classList.remove("is-fixed");
+            nav.classList.remove("is-scrolled");
+            isDone = false;
+          }
+        },
+        false
+      );
+    },
+    false
+  );
+})(document, window);
+</script>
+</head>
+
+<body>
+
+<article>
+<header class="header">
+  <div class="floatleft"><img src="logo.png" width="130" height="200"></div>
+  <h1 class="title">Your Way Laundry Service</h1>
+  <h3 class="slogan"><i>Making your life easier, one load at a time!</i></h3>
+  <p style="text-align: center;"><i>(315) 555-0123 | yourwaylaundry@gmail.com</i></p>
+</header>
+</article>
+
+<nav class="nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="service.html">Our Service</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+	
+	<h1>Contact:</h1>
+	<p style="padding-left:5em;">
+	<b>Office:</b> (315) 555-0123 <br /> <br />
+	<b>Email:</b> yourwaylaundry@gmail.com <br /> <br />
+	<b>Location:</b>  Onondaga County | <i><= Address would go here.</i>
+	</p>
+	<br />
+	<hr>
+	<br />
+	<p>If you have any questions or concerns, you can call us on the number above or email us at yourwaylaundry@gmail.com and one of our member will help you out.</p>
+	
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d311697.1680234302!2d-76.38172640806987!3d43.023259381616214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d9f4fe45a3ff35%3A0xb24aa2acf278b259!2sOnondaga+County%2C+NY!5e0!3m2!1sen!2sus!4v1512951282205" width="400" height="350" frameborder="4" style="border:0" allowfullscreen></iframe>
+</div>
+
+</body>
+</html>
